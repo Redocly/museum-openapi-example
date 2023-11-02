@@ -1,0 +1,24 @@
+apis:
+  main:
+    root: ./openapi.yaml
+extends: 
+  -  recommended
+rules: 
+  operation-tag-defined: error
+  no-invalid-schema-examples: error
+  no-invalid-media-type-examples: error
+  scalar-property-missing-example: error
+  rule/operation-summary-sentence-case:
+    subject: 
+      type: Operation
+      property: summary
+    message: "Operation summary must be sentence cased."
+    assertions: 
+      pattern: /^[A-Z]+[^A-Z]+$/
+  rule/example-summary-sentence-case:
+    subject: 
+      type: Example
+      property: summary
+    message: "Example summary must be sentence cased."
+    assertions: 
+      pattern: /^[A-Z]+[^A-Z]+$/

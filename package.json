@@ -1,0 +1,22 @@
+{
+  "name": "museum-openapi-example",
+  "version": "1.0.0",
+  "description": "An example OpenAPI description for a fictional museum. Built for educational purposes.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "npx @redocly/cli@latest lint",
+    "preview": "npx @redocly/cli preview-docs"
+  },
+  "keywords": [
+    "OpenAPI",
+    "OAS",
+    "OpenAPI specification",
+    "OAS Example",
+    "OpenAPI Example"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@redocly/cli": "latest"
+  }
+}
