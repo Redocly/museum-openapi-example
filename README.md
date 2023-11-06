@@ -9,7 +9,7 @@ An imaginary, but delightful Museum API for interacting with museum services and
 
 Introducing the "Museum API", which offers a set of endpoints to interact with a museum's services--such as retrieving museum hours, managing special events, and purchasing tickets. 
 
-New functionality may be added in the future by Redocly or outside contributors. Want to add an example to the Museum API? PRs are quite welcome.
+New functionality may be added to the Museum API in the future. Is there an example you'd like to see? Please [open an issue](https://github.com/Redocly/museum-openapi-example/issues/new).
 
 ## Features
 > [!NOTE]  
