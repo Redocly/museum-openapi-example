@@ -7,8 +7,8 @@ info:
     email: team@redocly.com
     url: 'https://redocly.com/docs/cli/'
   license: 
-    name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+    name: MIT
+    url: 'https://opensource.org/license/mit/ '
 servers:
   - url: 'https://api.fake-museum-example.com/v1'
 paths: 
