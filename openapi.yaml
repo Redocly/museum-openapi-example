@@ -311,7 +311,7 @@ components:
         date:
           description: Date the operating hours apply to.
           $ref: "#/components/schemas/Date"
-          example: 02-02-2022
+          example: 2024-12-31
         timeOpen:
           type: string
           pattern: '^([01]\d|2[0-3]):?([0-5]\d)$'
