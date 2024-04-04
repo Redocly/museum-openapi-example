@@ -9,7 +9,7 @@ info:
     url: "https://redocly.com/docs/cli/"
   license:
     name: MIT
-    url: "https://opensource.org/license/mit/ "
+    url: "https://opensource.org/license/mit/"
 servers:
   - url: "https://api.fake-museum-example.com/v1.1"
 paths:
