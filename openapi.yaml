@@ -9,7 +9,7 @@ info:
     url: "https://redocly.com/docs/cli/"
   license:
     name: MIT
-    url: "https://opensource.org/license/mit/ "
+    url: "https://opensource.org/license/mit/"
 servers:
   - url: "https://api.fake-museum-example.com/v1.1"
 paths:
@@ -415,7 +415,7 @@ components:
         - price
     Error:
       type: object
-      properties: 
+      properties:
         type:
           type: string
           example: object
@@ -680,24 +680,24 @@ components:
         type: string
         format: uuid
         example: a54a57ca-36f8-421b-a6b4-2e8f26858a4c
-  responses: 
+  responses:
     BadRequest:
       description: Bad request.
       content:
         application/problem+json:
-          schema: 
+          schema:
             $ref: '#/components/schemas/Error'
     NotFound:
       description: Not found.
       content:
         application/problem+json:
-          schema: 
+          schema:
             $ref: '#/components/schemas/Error'
     Unauthorized:
       description: Unauthorized.
       content:
         application/problem+json:
-          schema: 
+          schema:
             $ref: '#/components/schemas/Error'
 tags:
   - name: Operations
