@@ -18,12 +18,14 @@ jobs:
       run: npm install
     - name: Install Speakeasy CLI
       run: curl -fsSL https://raw.githubusercontent.com/speakeasy-api/speakeasy/main/install.sh | sh
+    - name: Install Spectral
+      run: npm install -g @stoplight/spectral-cli
       ### General purpose linters ############################################
     - name: Run Redocly CLI linting
       run: npx @redocly/cli lint openapi.yaml --config redocly.yaml
       continue-on-error: true
     - name: Run Spectral linting
-      run: npx @stoplight/spectral-cli lint openapi.yaml --ruleset spectral-ruleset.yaml
+      run: spectral lint openapi.yaml --ruleset spectral-ruleset.yaml
       continue-on-error: true
     - name: Run Vacuum linting
       run: npx @quobix/vacuum lint openapi.yaml --ruleset vacuum-ruleset.yaml --details
