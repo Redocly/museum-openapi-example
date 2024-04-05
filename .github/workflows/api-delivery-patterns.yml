@@ -18,7 +18,7 @@ jobs:
       run: npm install
     - name: Install Speakeasy CLI
       run: curl -fsSL https://raw.githubusercontent.com/speakeasy-api/speakeasy/main/install.sh | sh
-      ### Linting ############################################
+      ### General purpose linters ############################################
     - name: Run Redocly CLI linting
       run: npx @redocly/cli lint openapi.yaml --config redocly.yaml
       continue-on-error: true
@@ -29,8 +29,12 @@ jobs:
       run: npx @quobix/vacuum lint openapi.yaml --ruleset vacuum-ruleset.yaml --details
       continue-on-error: true
     - name: Run Optic Linting
+      env:
+        OPTIC_TOKEN: ${{ secrets.OPTIC_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: npx @useoptic/optic run openapi.yaml
       continue-on-error: true
+    ### Target tool linters ############################################
     - name: Run Readme linting
       run: npx rdme openapi:validate openapi.yaml
       continue-on-error: true
