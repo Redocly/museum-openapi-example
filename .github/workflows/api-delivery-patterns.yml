@@ -24,7 +24,7 @@ jobs:
     - name: Run Spectral linting
       run: npx @stoplight/spectral-cli lint openapi.yaml --ruleset spectral-ruleset.yaml
     - name: Run Vacuum linting
-      run: npx @quobix/vacuum lint openapi.yaml --ruleset spectral-ruleset.yaml --details
+      run: npx @quobix/vacuum lint openapi.yaml --ruleset vacuum-ruleset.yaml --details
     - name: Run Optic Linting
       run: npx @useoptic/optic run openapi.yaml
     - name: Run Readme linting
