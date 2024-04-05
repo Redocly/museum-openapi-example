@@ -1,0 +1,33 @@
+name: Validate museum OpenAPI description
+
+on: [push, pull_request]
+
+jobs:
+  linting:
+    runs-on: ubuntu-latest
+    steps:
+    ### Setup ############################################
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Setup node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 20.5.1
+        cache: 'npm'
+    - name: Install dependencies
+      run: npm install
+    - name: Install Speakeasy CLI
+      run: curl -fsSL https://raw.githubusercontent.com/speakeasy-api/speakeasy/main/install.sh | sh
+      ### Linting ############################################
+    - name: Run Redocly CLI linting
+      run: npx @redocly/cli lint openapi.yaml --config redocly.yaml
+    - name: Run Spectral linting
+      run: npx @stoplight/spectral-cli lint openapi.yaml --ruleset spectral-ruleset.yaml
+    - name: Run Vacuum linting
+      run: npx @quobix/vacuum lint openapi.yaml --ruleset spectral-ruleset.yaml --details
+    - name: Run Optic Linting
+      run: npx @useoptic/optic run openapi.yaml
+    - name: Run Readme linting
+      run: npx rdme openapi:validate openapi.yaml
+    - name: Run Speakeasy linting
+      run: speakeasy lint openapi --schema=openapi.yaml

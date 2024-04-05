@@ -1,0 +1,1557 @@
+{
+	"info": {
+		"_postman_id": "048bf242-d617-42e4-bfe2-6533fa0cedb6",
+		"name": "Redocly Museum API",
+		"description": "Imaginary, but delightful Museum API for interacting with museum services and information. Built with love by Redocly.\n\nContact Support:\n Email: team@redocly.com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19673460",
+		"_collection_link": "https://ikenna-team.postman.co/workspace/PattersForApiDelivery~571ddecc-0a9f-4b64-b6cd-be81a202fa2c/collection/19673460-048bf242-d617-42e4-bfe2-6533fa0cedb6?action=share&source=collection_link&creator=19673460"
+	},
+	"item": [
+		{
+			"name": "special-events",
+			"item": [
+				{
+					"name": "{eventId}",
+					"item": [
+						{
+							"name": "Get special event",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/special-events/:eventId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"special-events",
+										":eventId"
+									],
+									"variable": [
+										{
+											"key": "eventId",
+											"value": "<uuid>",
+											"description": "(Required) Identifier for a special event."
+										}
+									]
+								},
+								"description": "Get details about a special event."
+							},
+							"response": [
+								{
+									"name": "Success.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/special-events/:eventId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"special-events",
+												":eventId"
+											],
+											"variable": [
+												{
+													"key": "eventId",
+													"value": "<uuid>",
+													"description": "(Required) Identifier for a special event."
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"eventId\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"location\": \"<string>\",\n  \"eventDescription\": \"<string>\",\n  \"dates\": [\n    \"<date>\",\n    \"<date>\"\n  ],\n  \"price\": \"<float>\"\n}"
+								},
+								{
+									"name": "Bad request.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/problem+json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/special-events/:eventId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"special-events",
+												":eventId"
+											],
+											"variable": [
+												{
+													"key": "eventId",
+													"value": "<uuid>",
+													"description": "(Required) Identifier for a special event."
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/problem+json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\"\n}"
+								},
+								{
+									"name": "Not found.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/problem+json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/special-events/:eventId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"special-events",
+												":eventId"
+											],
+											"variable": [
+												{
+													"key": "eventId",
+													"value": "<uuid>",
+													"description": "(Required) Identifier for a special event."
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/problem+json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Update special event",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"location\": \"<string>\",\n  \"eventDescription\": \"<string>\",\n  \"dates\": [\n    \"<date>\",\n    \"<date>\"\n  ],\n  \"price\": \"<float>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/special-events/:eventId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"special-events",
+										":eventId"
+									],
+									"variable": [
+										{
+											"key": "eventId",
+											"value": "<uuid>",
+											"description": "(Required) Identifier for a special event."
+										}
+									]
+								},
+								"description": "Update the details of a special event."
+							},
+							"response": [
+								{
+									"name": "Success.",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"location\": \"<string>\",\n  \"eventDescription\": \"<string>\",\n  \"dates\": [\n    \"<date>\",\n    \"<date>\"\n  ],\n  \"price\": \"<float>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/special-events/:eventId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"special-events",
+												":eventId"
+											],
+											"variable": [
+												{
+													"key": "eventId",
+													"value": "<uuid>",
+													"description": "(Required) Identifier for a special event."
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"eventId\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"location\": \"<string>\",\n  \"eventDescription\": \"<string>\",\n  \"dates\": [\n    \"<date>\",\n    \"<date>\"\n  ],\n  \"price\": \"<float>\"\n}"
+								},
+								{
+									"name": "Bad request.",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/problem+json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"location\": \"<string>\",\n  \"eventDescription\": \"<string>\",\n  \"dates\": [\n    \"<date>\",\n    \"<date>\"\n  ],\n  \"price\": \"<float>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/special-events/:eventId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"special-events",
+												":eventId"
+											],
+											"variable": [
+												{
+													"key": "eventId",
+													"value": "<uuid>",
+													"description": "(Required) Identifier for a special event."
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/problem+json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\"\n}"
+								},
+								{
+									"name": "Not found.",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/problem+json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"location\": \"<string>\",\n  \"eventDescription\": \"<string>\",\n  \"dates\": [\n    \"<date>\",\n    \"<date>\"\n  ],\n  \"price\": \"<float>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/special-events/:eventId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"special-events",
+												":eventId"
+											],
+											"variable": [
+												{
+													"key": "eventId",
+													"value": "<uuid>",
+													"description": "(Required) Identifier for a special event."
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/problem+json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete special event",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/problem+json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/special-events/:eventId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"special-events",
+										":eventId"
+									],
+									"variable": [
+										{
+											"key": "eventId",
+											"value": "<uuid>",
+											"description": "(Required) Identifier for a special event."
+										}
+									]
+								},
+								"description": "Delete a special event from the collection. Allows museum to cancel planned events."
+							},
+							"response": [
+								{
+									"name": "Success - no content.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/special-events/:eventId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"special-events",
+												":eventId"
+											],
+											"variable": [
+												{
+													"key": "eventId",
+													"value": "<uuid>",
+													"description": "(Required) Identifier for a special event."
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Bad request.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/problem+json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/special-events/:eventId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"special-events",
+												":eventId"
+											],
+											"variable": [
+												{
+													"key": "eventId",
+													"value": "<uuid>",
+													"description": "(Required) Identifier for a special event."
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/problem+json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\"\n}"
+								},
+								{
+									"name": "Unauthorized.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/problem+json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/special-events/:eventId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"special-events",
+												":eventId"
+											],
+											"variable": [
+												{
+													"key": "eventId",
+													"value": "<uuid>",
+													"description": "(Required) Identifier for a special event."
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/problem+json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\"\n}"
+								},
+								{
+									"name": "Not found.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: basic",
+												"key": "Authorization",
+												"value": "Basic <credentials>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/problem+json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/special-events/:eventId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"special-events",
+												":eventId"
+											],
+											"variable": [
+												{
+													"key": "eventId",
+													"value": "<uuid>",
+													"description": "(Required) Identifier for a special event."
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/problem+json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Create special events",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"<string>\",\n  \"location\": \"<string>\",\n  \"eventDescription\": \"<string>\",\n  \"dates\": [\n    \"<date>\",\n    \"<date>\"\n  ],\n  \"price\": \"<float>\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/special-events",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"special-events"
+							]
+						},
+						"description": "Creates a new special event for the museum."
+					},
+					"response": [
+						{
+							"name": "Success.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"location\": \"<string>\",\n  \"eventDescription\": \"<string>\",\n  \"dates\": [\n    \"<date>\",\n    \"<date>\"\n  ],\n  \"price\": \"<float>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/special-events",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"special-events"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"eventId\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"location\": \"<string>\",\n  \"eventDescription\": \"<string>\",\n  \"dates\": [\n    \"<date>\",\n    \"<date>\"\n  ],\n  \"price\": \"<float>\"\n}"
+						},
+						{
+							"name": "Bad request.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/problem+json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"location\": \"<string>\",\n  \"eventDescription\": \"<string>\",\n  \"dates\": [\n    \"<date>\",\n    \"<date>\"\n  ],\n  \"price\": \"<float>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/special-events",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"special-events"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/problem+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\"\n}"
+						},
+						{
+							"name": "Not found.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/problem+json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"location\": \"<string>\",\n  \"eventDescription\": \"<string>\",\n  \"dates\": [\n    \"<date>\",\n    \"<date>\"\n  ],\n  \"price\": \"<float>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/special-events",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"special-events"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/problem+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\"\n}"
+						}
+					]
+				},
+				{
+					"name": "List special events",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/special-events?startDate=<date>&endDate=<date>&page=1&limit=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"special-events"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "<date>",
+									"description": "Starting date to retrieve future operating hours from. Defaults to today's date."
+								},
+								{
+									"key": "endDate",
+									"value": "<date>",
+									"description": "End of a date range to retrieve special events for. Defaults to 7 days after `startDate`."
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Page number to retrieve."
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"description": "Number of days per page."
+								}
+							]
+						},
+						"description": "Return a list of upcoming special events at the museum."
+					},
+					"response": [
+						{
+							"name": "Success.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/special-events?startDate=<date>&endDate=<date>&page=1&limit=10",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"special-events"
+									],
+									"query": [
+										{
+											"key": "startDate",
+											"value": "<date>"
+										},
+										{
+											"key": "endDate",
+											"value": "<date>"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"eventId\": \"<uuid>\",\n    \"name\": \"<string>\",\n    \"location\": \"<string>\",\n    \"eventDescription\": \"<string>\",\n    \"dates\": [\n      \"<date>\",\n      \"<date>\"\n    ],\n    \"price\": \"<float>\"\n  },\n  {\n    \"eventId\": \"<uuid>\",\n    \"name\": \"<string>\",\n    \"location\": \"<string>\",\n    \"eventDescription\": \"<string>\",\n    \"dates\": [\n      \"<date>\",\n      \"<date>\"\n    ],\n    \"price\": \"<float>\"\n  }\n]"
+						},
+						{
+							"name": "Bad request.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/problem+json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/special-events?startDate=<date>&endDate=<date>&page=1&limit=10",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"special-events"
+									],
+									"query": [
+										{
+											"key": "startDate",
+											"value": "<date>"
+										},
+										{
+											"key": "endDate",
+											"value": "<date>"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/problem+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\"\n}"
+						},
+						{
+							"name": "Not found.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/problem+json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/special-events?startDate=<date>&endDate=<date>&page=1&limit=10",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"special-events"
+									],
+									"query": [
+										{
+											"key": "startDate",
+											"value": "<date>"
+										},
+										{
+											"key": "endDate",
+											"value": "<date>"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/problem+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "tickets",
+			"item": [
+				{
+					"name": "Buy museum tickets",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"ticketType\": \"<string>\",\n  \"ticketDate\": \"<date>\",\n  \"email\": \"<email>\",\n  \"eventId\": \"<uuid>\",\n  \"phone\": \"<string>\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/tickets",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tickets"
+							]
+						},
+						"description": "Purchase museum tickets for general entry or special events."
+					},
+					"response": [
+						{
+							"name": "Success.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"ticketType\": \"<string>\",\n  \"ticketDate\": \"<date>\",\n  \"email\": \"<email>\",\n  \"eventId\": \"<uuid>\",\n  \"phone\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/tickets",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"tickets"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"<string>\",\n  \"ticketId\": \"<uuid>\",\n  \"ticketType\": \"<string>\",\n  \"ticketDate\": \"<date>\",\n  \"confirmationCode\": \"<string>\",\n  \"eventName\": \"<string>\"\n}"
+						},
+						{
+							"name": "Bad request.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/problem+json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"ticketType\": \"<string>\",\n  \"ticketDate\": \"<date>\",\n  \"email\": \"<email>\",\n  \"eventId\": \"<uuid>\",\n  \"phone\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/tickets",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"tickets"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/problem+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\"\n}"
+						},
+						{
+							"name": "Not found.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/problem+json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"ticketType\": \"<string>\",\n  \"ticketDate\": \"<date>\",\n  \"email\": \"<email>\",\n  \"eventId\": \"<uuid>\",\n  \"phone\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/tickets",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"tickets"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/problem+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get ticket QR code",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "image/png"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/tickets/:ticketId/qr",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tickets",
+								":ticketId",
+								"qr"
+							],
+							"variable": [
+								{
+									"key": "ticketId",
+									"value": "<uuid>",
+									"description": "(Required) Identifier for a ticket to a museum event. Used to generate ticket image."
+								}
+							]
+						},
+						"description": "Return an image of your ticket with scannable QR code. Used for event entry."
+					},
+					"response": [
+						{
+							"name": "Scannable event ticket in image format.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									},
+									{
+										"key": "Accept",
+										"value": "image/png"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/tickets/:ticketId/qr",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"tickets",
+										":ticketId",
+										"qr"
+									],
+									"variable": [
+										{
+											"key": "ticketId",
+											"value": "<uuid>",
+											"description": "(Required) Identifier for a ticket to a museum event. Used to generate ticket image."
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "image/png"
+								}
+							],
+							"cookie": [],
+							"body": "<binary>"
+						},
+						{
+							"name": "Bad request.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/problem+json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/tickets/:ticketId/qr",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"tickets",
+										":ticketId",
+										"qr"
+									],
+									"variable": [
+										{
+											"key": "ticketId",
+											"value": "<uuid>",
+											"description": "(Required) Identifier for a ticket to a museum event. Used to generate ticket image."
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/problem+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\"\n}"
+						},
+						{
+							"name": "Not found.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/problem+json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/tickets/:ticketId/qr",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"tickets",
+										":ticketId",
+										"qr"
+									],
+									"variable": [
+										{
+											"key": "ticketId",
+											"value": "<uuid>",
+											"description": "(Required) Identifier for a ticket to a museum event. Used to generate ticket image."
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/problem+json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Get museum hours",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/museum-hours?startDate=<date>&page=1&limit=10",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"museum-hours"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "<date>",
+							"description": "Starting date to retrieve future operating hours from. Defaults to today's date."
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"description": "Page number to retrieve."
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "Number of days per page."
+						}
+					]
+				},
+				"description": "Get upcoming museum operating hours."
+			},
+			"response": [
+				{
+					"name": "Success.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: basic",
+								"key": "Authorization",
+								"value": "Basic <credentials>"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/museum-hours?startDate=<date>&page=1&limit=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"museum-hours"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "<date>"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n  {\n    \"date\": \"<date>\",\n    \"timeOpen\": \"<string>\",\n    \"timeClose\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"timeOpen\": \"<string>\",\n    \"timeClose\": \"<string>\"\n  }\n]"
+				},
+				{
+					"name": "Bad request.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: basic",
+								"key": "Authorization",
+								"value": "Basic <credentials>"
+							},
+							{
+								"key": "Accept",
+								"value": "application/problem+json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/museum-hours?startDate=<date>&page=1&limit=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"museum-hours"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "<date>"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/problem+json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\"\n}"
+				},
+				{
+					"name": "Not found.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: basic",
+								"key": "Authorization",
+								"value": "Basic <credentials>"
+							},
+							{
+								"key": "Accept",
+								"value": "application/problem+json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/museum-hours?startDate=<date>&page=1&limit=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"museum-hours"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "<date>"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/problem+json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\"\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "username",
+				"value": "{{basicAuthUsername}}",
+				"type": "string"
+			},
+			{
+				"key": "password",
+				"value": "{{basicAuthPassword}}",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api.fake-museum-example.com/v1.1",
+			"type": "string"
+		}
+	]
+}

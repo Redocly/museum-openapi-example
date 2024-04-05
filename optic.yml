@@ -1,0 +1,31 @@
+ruleset:
+  # Prevent breaking changes
+  - "breaking-changes"
+  # Enforce naming conventions in your API
+  - naming:
+      required_on: always
+      requestHeaders: Capital-Param-Case
+      responseHeaders: param-case
+      properties: Capital-Param-Case
+      pathComponents:  param-case
+      queryParameters: snake_case
+  # Require your OpenAPI has examples, and that those examples match the schema
+  - examples:
+      required_on: always
+      require_request_examples: true
+      require_response_examples: true
+      require_parameter_examples: true
+      # (optional) allow certain operations do not need examples
+      exclude_operations_with_extension: x-legacy-api
+  - documentation:
+      required_on: always
+      require_property_descriptions: true
+      require_operation_summary: true
+      require_operation_description: true
+      require_operation_id: true
+      # (optional) allow certain operations do not need examples
+      exclude_operations_with_extension: x-legacy-api
+  - spectral:
+      # You can also point this at your own `spectral.yaml` file!
+      always:
+        - ./spectral-ruleset.yaml
