@@ -1,0 +1,1 @@
+1. GET responses with a top level data property of type array should have some form of pagination.

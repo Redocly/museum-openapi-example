@@ -36,6 +36,12 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: npx @useoptic/optic run openapi.yaml
       continue-on-error: true
+    ### AI linting ############################################
+    - name: AI linting
+      env:
+        ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      run: python3 ./my-ai-linter.py openapi.yaml ai-ruleset.txt
+      continue-on-error: true
     ### Target tool linters ############################################
     - name: Run Readme linting
       run: npx rdme openapi:validate openapi.yaml
