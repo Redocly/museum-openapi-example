@@ -1,19 +1,23 @@
 # Redocly Museum API Example
 
-An imaginary, but delightful Museum API for interacting with museum services and information. Built by Redocly for educational purposes. Enjoy!
+An imaginary, but delightful Museum API for interacting with museum services and information.
+Built by Redocly for educational purposes.
+Enjoy!
 
 > [!NOTE]  
 > This OpenAPI description uses the [OpenAPI 3.1.0 specification](https://spec.openapis.org/oas/v3.1.0).
 
 ## Overview
 
-Introducing the "Museum API", which offers a set of endpoints to interact with a museum's services--such as retrieving museum hours, managing special events, and purchasing tickets. 
+Introducing the "Museum API", which offers a set of endpoints to interact with a museum's services--such as retrieving museum hours, managing special events, and purchasing tickets.
 
-New functionality may be added to the Museum API in the future. Is there an example you'd like to see? Please [open an issue](https://github.com/Redocly/museum-openapi-example/issues/new).
+New functionality may be added to the Museum API in the future.
+Is there an example you'd like to see? Please [open an issue](https://github.com/Redocly/museum-openapi-example/issues/new).
 
 ## Features
 > [!NOTE]  
-> Reminder that this is a fictional example for learning purposes. The features below are only for learning.
+> Reminder that this is a fictional example for learning purposes.
+> The features below are only for learning.
 
 The Museum API has the following core features (sorted by tags):
 - Operations
@@ -35,9 +39,10 @@ The Museum API has the following core features (sorted by tags):
 
 ### Working with the OpenAPI description
 
-We encourage you to explore the museum's OpenAPI description and make changes. Try experimenting with the following approaches:
+We encourage you to explore the museum's OpenAPI description and make changes.
+Try experimenting with the following approaches:
 
-**Preview the museum's API docs and observe your changes visually.**
+**Preview the Museum OpenAPI example's API docs and observe your changes visually.**
 - Run `npm run preview` to preview the documentation.
 - Navigate to the **List special events** operation in the preview.
 - With the preview running...
@@ -68,4 +73,6 @@ See the updated description? This is a great way to preview how end-users of you
 ```
 - Run `npm run lint` in your terminal. See the errors? 
 
-The linting behavior is controlled by the _redocly.yaml_ configuration file. The linter is configured to use Redocly's [recommended ruleset](https://redocly.com/docs/cli/rules/recommended/#recommended-ruleset), which are built into the CLI. However, we also added a [configurable rule](https://redocly.com/docs/cli/rules/configurable-rules/) for enforcing sentence casing on operation summaries. 
+The linting behavior is controlled by the _redocly.yaml_ configuration file.
+The linter is configured to use Redocly's [recommended ruleset](https://redocly.com/docs/cli/rules/recommended/#recommended-ruleset), which are built into the CLI.
+However, we also added a [configurable rule](https://redocly.com/docs/cli/rules/configurable-rules/) for enforcing sentence casing on operation summaries.
