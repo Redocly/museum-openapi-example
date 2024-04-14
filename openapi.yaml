@@ -13,6 +13,7 @@ info:
 servers:
   - url: "https://api.fake-museum-example.com/v1.1"
 paths:
+JUST A COMMENT: You could add a feature-grouping around memberships? Or one around the museum's catalog (all the artpieces they have, whether they are on display or not)?
   /museum-hours:
     get:
       summary: Get museum hours
