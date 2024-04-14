@@ -218,6 +218,44 @@ paths:
           $ref: '#/components/responses/BadRequest'
         "404":
           $ref: '#/components/responses/NotFound'
+  /membership:
+    post:
+      summary: Buy a membership
+      description: Purchase an annual membership.
+      operationId: buyMembership
+      tags:
+        - Memberships
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BuyMembershipRequest"
+            examples:
+              family_entry:
+                $ref: "#/components/examples/BuyFamilyMembershipRequest"
+              patron_entry:
+                $ref: "#/components/examples/BuyPatronMembershipRequest"
+              benefactor_entry:
+                $ref: "#/components/examples/BuyBenefactorMembershipRequest"
+      responses:
+        "200":
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BuyFamilyMembershipRequestResponse"
+              examples:
+                family_entry:
+                  $ref: "#/components/examples/BuyFamilyMembershipResponseExample"
+                patron_entry:
+                  $ref: "#/components/examples/BuyPatronMembershipResponseExample"
+                benefactor_entry:
+                  $ref: "#/components/examples/BuyBenefactorMembershipResponseExample"
+        "400":
+          $ref: '#/components/responses/BadRequest'
+        "404":
+          $ref: '#/components/responses/NotFound'
 components:
   schemas:
     TicketType:
@@ -245,7 +283,7 @@ components:
       type: object
       properties:
         ticketType:
-          $ref: "#/components/schemas/TicketType"
+          $ref: "#/components/schemas/MembershipLevel"
         eventId:
           description: Unique identifier for a special event. Required if purchasing tickets for the museum's special events.
           $ref: "#/components/schemas/EventId"
@@ -264,6 +302,10 @@ components:
       description: Confirmation message after a ticket purchase.
       type: string
       example: Museum general entry ticket purchased
+    MembershipMessage:
+      description: Confirmation message after a membership purchase.
+      type: string
+      example: Family membership purchased
     TicketId:
       description: Unique identifier for museum ticket. Generated when purchased.
       type: string
@@ -273,6 +315,10 @@ components:
       description: Unique confirmation code used to verify ticket purchase.
       type: string
       example: 'ticket-event-a98c8f-7eb12'
+    MembershipConfirmation:
+      description: Unique confimation code used to verify membership purchase.
+      type: string
+      example: 'family-membership-a1b2c3-4d5e6'
     BuyMuseumTicketsResponse:
       description: Details for a museum ticket after a successful purchase.
       type: object
@@ -354,6 +400,191 @@ components:
       type: number
       format: float
       example: 25
+    MembershipLevel:
+      description: Type of membership for a guest
+      type: string
+      enum: 
+        - Family
+        - Patron
+        - Benefactor
+      example: Family
+    FamilyMembership:
+      description: Benefits of a family membership
+      type: object
+      properties:
+        guests: 
+          description: Number of guests included in membership
+          type: integer
+          example: 4
+        discount:
+          description: Amount of discount for a family membership
+          type: float
+          example: 10%
+        cost:
+          description: Annual cost of a membership
+          type: float
+          example: 100
+    PatronMembership:
+      ription: Benefits of a patron membership
+      type: object
+      properties:
+        guests: 
+          description: Number of guests included in membership
+          type: integer
+          example: 6
+        discount:
+          description: Amount of gift shop and cafe discount for a family membership
+          type: float
+          example: 20%
+        cost:
+          description: Annual cost of a membership
+          type: float
+          example: 200
+    BenefactorMembership:
+      ription: Benefits of a patron membership
+      type: object
+      properties:
+        guests: 
+          description: Number of guests included in membership
+          type: integer
+          example: 10
+        discount:
+          description: Amount of  gift shop and cafe discount for a family membership
+          type: float
+          example: 30%
+        cost:
+          description: Annual cost of a membership
+          type: float
+          example: 1000
+    BuyFamilyMembershipRequest:
+      description: Request payload used for purchasing family memberships.
+      type: object
+      properties:
+        membershipLevel:
+          $ref: "#/components/schemas/MembershipLevel"
+        startDate:
+          description: Date that the membership begins.
+          $ref: "#/components/schemas/Date"
+        endDate:
+          description: Date that the membership ends.
+          $ref: "#/components/schemas/Date"
+        email:
+          $ref: "#/components/schemas/Email"
+        phone:
+          $ref: "#/components/schemas/Phone"
+      required:
+        - membershipLevel
+        - startDate
+        - email
+    BuyPatronMembershipRequest:
+      description: Request payload used for purchasing family memberships.
+      type: object
+      properties:
+        membershipLevel:
+          $ref: "#/components/schemas/MembershipLevel"
+        startDate:
+          description: Date that the membership begins.
+          $ref: "#/components/schemas/Date"
+        endDate:
+          description: Date that the membership ends.
+          $ref: "#/components/schemas/Date"
+        email:
+          $ref: "#/components/schemas/Email"
+        phone:
+          $ref: "#/components/schemas/Phone"
+      required:
+        - membershipLevel
+        - startDate
+        - email
+    BuyBenefactorMembershipRequest:
+      description: Request payload used for purchasing family memberships.
+      type: object
+      properties:
+        membershipLevel:
+          $ref: "#/components/schemas/MembershipLevel"
+        startDate:
+          description: Date that the membership begins.
+          $ref: "#/components/schemas/Date"
+        endDate:
+          description: Date that the membership ends.
+          $ref: "#/components/schemas/Date"
+        email:
+          $ref: "#/components/schemas/Email"
+        phone:
+          $ref: "#/components/schemas/Phone"
+      required:
+        - membershipLevel
+        - startDate
+        - email
+    BuyFamilyMembershipResponse:
+      description: Details for a membership after a successful purchase.
+      type: object
+      properties:
+        message:
+          $ref: "#/components/schemas/MembershipMessage"
+        eventName:
+          $ref: "#/components/schemas/EventName"
+        ticketId:
+          $ref: "#/components/schemas/TicketId"
+        ticketType:
+          $ref: "#/components/schemas/TicketType"
+        startDate:
+          description: Date that the membership starts.
+          $ref: "#/components/schemas/Date"
+        confirmationCode:
+          $ref: "#/components/schemas/MembershipConfirmation"
+      required:
+        - message
+        - ticketId
+        - ticketType
+        - startDate
+        - confirmationCode
+    BuyPatronMembershipResponse:
+      description: Details for a patron membership after a successful purchase.
+      type: object
+      properties:
+        message:
+          $ref: "#/components/schemas/MembershipMessage"
+        eventName:
+          $ref: "#/components/schemas/EventName"
+        ticketId:
+          $ref: "#/components/schemas/TicketId"
+        ticketType:
+          $ref: "#/components/schemas/TicketType"
+        startDate:
+          description: Date that the membership starts.
+          $ref: "#/components/schemas/Date"
+        confirmationCode:
+          $ref: "#/components/schemas/MembershipConfirmation"
+      required:
+        - message
+        - ticketId
+        - ticketType
+        - startDate
+        - confirmationCode
+    BuyBenefactorMembershipResponse:
+      description: Details for a membership after a successful purchase.
+      type: object
+      properties:
+        message:
+          $ref: "#/components/schemas/MembershipMessage"
+        eventName:
+          $ref: "#/components/schemas/EventName"
+        ticketId:
+          $ref: "#/components/schemas/TicketId"
+        ticketType:
+          $ref: "#/components/schemas/TicketType"
+        startDate:
+          description: Date that the membership starts.
+          $ref: "#/components/schemas/Date"
+        confirmationCode:
+          $ref: "#/components/schemas/MembershipConfirmation"
+      required:
+        - message
+        - ticketId
+        - ticketType
+        - startDate
+        - confirmationCode
     CreateSpecialEventRequest:
       description: Request payload for creating new special events at the museum.
       properties:
@@ -628,6 +859,24 @@ components:
         - date: "2023-09-22"
           timeOpen: "10:00"
           timeClose: "16:00"
+    BuyFamilyMembershipExample:
+      summary: Family Membership
+      value:
+        membershipLevel: family
+        ticketDate: '2024-04-14'
+        email: todd@example.com
+    BuyPatronMembershipExample:
+      summary: Patron Membership
+      value:
+        membershipLevel: patron
+        ticketDate: '2024-04-14'
+        email: todd@example.com
+    BuyBenefactorMembershipExample:
+      summary: Benefactor Membership
+      value:
+        membershipLevel: family
+        ticketDate: '2024-04-14'
+        email: todd@example.com
   parameters:
     PaginationPage:
       name: page
@@ -706,5 +955,7 @@ tags:
     description: Special events hosted by the museum.
   - name: Tickets
     description: Museum tickets for general entrance or special events.
+  - name: Memberships
+    description: Join the museum to support our mission and save money on repeat visits.
 security:
   - MuseumPlaceholderAuth: []
