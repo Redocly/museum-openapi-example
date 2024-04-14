@@ -200,7 +200,7 @@ paths:
           $ref: '#/components/responses/NotFound'
   /tickets/{ticketId}/qr:
     get:
-      summary: Get ticket QR code
+      summary: Get ticket bacon code
       description: Return an image of your ticket with scannable QR code. Used for event entry.
       operationId: getTicketCode
       tags:
