@@ -38,6 +38,31 @@ paths:
           $ref: '#/components/responses/BadRequest'
         "404":
           $ref: '#/components/responses/NotFound'
+  /museum-ticket-prices:
+    get:
+      summary: Get museum ticket prices
+      description: Get museum ticket prices.
+      operationId: getMuseumTicketPrices
+      tags:
+        - Operations
+      parameters:
+        - $ref: "#/components/parameters/StartDate2"
+        - $ref: "#/components/parameters/PaginationPage2"
+        - $ref: "#/components/parameters/PaginationLimit2"
+      responses:
+        "200":
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetMuseumTicketPriceResponse"
+              examples:
+                default_example:
+                  $ref: "#/components/examples/GetMuseumTicketPriceExample"
+        "400":
+          $ref: '#/components/responses/BadRequest'
+        "404":
+          $ref: '#/components/responses/NotFound'          
   /special-events:
     post:
       summary: Create special events
@@ -646,6 +671,23 @@ components:
         default: 10
         maximum: 30
         example: 15
+    PaginationPage2:
+      name: page
+      in: query
+      description: Page number to retrieve.
+      schema:
+        type: integer
+        default: 1
+        example: 2
+    PaginationLimit2:
+      name: limit
+      in: query
+      description: Number of ticket prices per page.
+      schema:
+        type: integer
+        default: 10
+        maximum: 30
+        example: 15        
     EventId:
       name: eventId
       in: path
@@ -663,6 +705,14 @@ components:
         type: string
         format: date
         example: '2023-02-23'
+    StartDate2:
+      name: startDate
+      in: query
+      description: Starting date to retrieve ticket prices from. Defaults to today's date.
+      schema:
+        type: string
+        format: date
+        example: '2023-02-23'        
     EndDate:
       name: endDate
       in: query
