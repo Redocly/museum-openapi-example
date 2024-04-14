@@ -204,11 +204,6 @@ paths:
       operationId: deleteTicket
       tags:
         - Tickets
-      parameters:
-        - $ref: "#/components/parameters/TicketId"
-          decorators:
-            operation-description-override:
-              filePath: ./my-custom-delete-ticket-description.md
       responses:
         "204":
           description: Success - ticket deleted.
