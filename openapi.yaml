@@ -198,6 +198,24 @@ paths:
           $ref: '#/components/responses/BadRequest'
         "404":
           $ref: '#/components/responses/NotFound'
+    delete:
+      summary: Delete ticket
+      description: Delete ticket and refund. Allows for ticket cancellation.
+      operationId: deleteTicket
+      tags:
+        - Tickets
+      parameters:
+        - $ref: "#/components/parameters/TicketId"
+          decorators:
+            operation-description-override:
+              filePath: ./my-custom-delete-ticket-description.md
+      responses:
+        "204":
+          description: Success - ticket deleted.
+        "400":
+          $ref: '#/components/responses/BadRequest'
+        "404":
+          $ref: '#/components/responses/NotFound'
   /tickets/{ticketId}/qr:
     get:
       summary: Get ticket QR code
@@ -674,7 +692,7 @@ components:
     TicketId:
       name: ticketId
       in: path
-      description: Identifier for a ticket to a museum event. Used to generate ticket image.
+      description: Identifier for a ticket to a museum event.
       required: true
       schema:
         type: string
