@@ -204,6 +204,8 @@ paths:
       operationId: deleteTicket
       tags:
         - Tickets
+      parameters:
+        - $ref: "#/components/parameters/EventId"
       responses:
         "204":
           description: Success - ticket deleted.
