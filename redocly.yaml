@@ -1,6 +1,8 @@
 apis:
   main:
     root: ./openapi.yaml
+    rules: 
+      path-segment-plural: error
 extends: 
   -  recommended
 rules: 
