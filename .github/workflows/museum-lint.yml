@@ -1,6 +1,6 @@
 name: Validate museum OpenAPI description
 
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   build:
