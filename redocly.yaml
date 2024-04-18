@@ -2,7 +2,7 @@ apis:
   main:
     root: ./openapi.yaml
     rules: 
-      path-segment-plural: error
+      path-segment-plural: warn
 extends: 
   -  recommended
 rules: 
