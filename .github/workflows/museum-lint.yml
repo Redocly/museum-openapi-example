@@ -6,14 +6,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-    - name: Setup node
-      uses: actions/setup-node@v3
-      with:
-        node-version: 20.5.1
-        cache: 'npm'
-    - name: Install dependencies
-      run: npm install
-    - name: Run Redocly CLI linting
-      run: npm run lint
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up node
+        uses: actions/setup-node@v4
+      - name: Install Redocly CLI
+        run: npm install -g @redocly/cli@latest
+      - name: Run linting
+        run: redocly lint --format=github-actions
+
