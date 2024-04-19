@@ -1,4 +1,4 @@
-name: Validate museum OpenAPI description
+name: API linting
 
 on: [pull_request]
 
