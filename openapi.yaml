@@ -356,6 +356,7 @@ components:
       example: 25
     CreateSpecialEventRequest:
       description: Request payload for creating new special events at the museum.
+      type: object
       properties:
         name:
           $ref: "#/components/schemas/EventName"
@@ -375,6 +376,7 @@ components:
         - price
     UpdateSpecialEventRequest:
       description: Request payload for updating an existing special event. Only included fields are updated in the event.
+      type: object
       properties:
         name:
           $ref: "#/components/schemas/EventName"
@@ -393,6 +395,7 @@ components:
         $ref: "#/components/schemas/SpecialEventResponse"
     SpecialEventResponse:
       description: Information about a special event.
+      type: object
       properties:
         eventId:
           $ref: "#/components/schemas/EventId"
