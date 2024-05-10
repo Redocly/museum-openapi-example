@@ -22,3 +22,6 @@ rules:
     message: "Example summary must be sentence cased."
     assertions: 
       pattern: /^[A-Z]+[^A-Z]+$/
+
+ignore:
+  - .github
