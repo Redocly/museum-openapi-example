@@ -56,7 +56,7 @@ paths:
                 $ref: "#/components/examples/CreateSpecialEventRequestExample"
       responses:
         "201":
-          description: Success.
+          description: Created.
           content:
             application/json:
               schema:
@@ -184,7 +184,7 @@ paths:
                 $ref: "#/components/examples/BuyEventTicketsRequestExample"
       responses:
         "201":
-          description: Success.
+          description: Created.
           content:
             application/json:
               schema:
