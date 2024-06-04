@@ -55,7 +55,7 @@ paths:
               default_example:
                 $ref: "#/components/examples/CreateSpecialEventRequestExample"
       responses:
-        "200":
+        "201":
           description: Success.
           content:
             application/json:
@@ -183,7 +183,7 @@ paths:
               event_entry:
                 $ref: "#/components/examples/BuyEventTicketsRequestExample"
       responses:
-        "200":
+        "201":
           description: Success.
           content:
             application/json:
