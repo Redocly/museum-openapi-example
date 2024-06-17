@@ -1,25 +1,11 @@
-openapi: 3.1.0
+openapi: 3.0.3
 info:
-  title: Redocly Museum API v2
+  title: Redocly Museum API
   description: API for managing museum operations and events, powered by Redocly.
-  version: 2.0.0
-  termsOfService: 'https://redocly.com/terms/'
-  contact:
-    email: api-support@redocly.com
-    url: 'https://redocly.com/support/'
-  license:
-    name: Apache 2.0
-    url: 'https://www.apache.org/licenses/LICENSE-2.0.html'
+  version: 1.0.0
 servers:
-  - url: 'https://api.redocly-museum-v2.com/v2'
-    description: Production server for Redocly Museum API v2
-    variables:
-      environment:
-        enum:
-          - production
-          - staging
-          - development
-        default: production
+  - url: https://api.redocly-museum.com/v1
+    description: Production server for Redocly Museum API
 paths:
   /museum-hours:
     get:
@@ -29,21 +15,37 @@ paths:
       tags:
         - Hours
       parameters:
-        - $ref: '#/components/parameters/StartDate'
-        - $ref: '#/components/parameters/EndDate'
-        - $ref: '#/components/parameters/PaginationPage'
-        - $ref: '#/components/parameters/PaginationLimit'
+        - name: startDate
+          in: query
+          description: Start date for filtering hours.
+          required: false
+          schema:
+            type: string
+            format: date
+        - name: endDate
+          in: query
+          description: End date for filtering hours.
+          required: false
+          schema:
+            type: string
+            format: date
       responses:
         '200':
           description: Successful response with museum hours data.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MuseumHoursResponse'
+                type: array
+                items:
+                  $ref: '#/components/schemas/MuseumHours'
         '400':
-          $ref: '#/components/responses/BadRequest'
-        '404':
-          $ref: '#/components/responses/NotFound'
+          description: Bad request, invalid input.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    servers:
+      - url: https://api.redocly-museum.com/v1
   /events:
     post:
       summary: Create Special Event
@@ -65,9 +67,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/SpecialEvent'
         '400':
-          $ref: '#/components/responses/BadRequest'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
+          description: Bad request, invalid input.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    servers:
+      - url: https://api.redocly-museum.com/v1
   /events/{eventId}:
     get:
       summary: Get Event Details
@@ -76,7 +82,13 @@ paths:
       tags:
         - Events
       parameters:
-        - $ref: '#/components/parameters/EventId'
+        - name: eventId
+          in: path
+          description: ID of the event to retrieve.
+          required: true
+          schema:
+            type: string
+            format: uuid
       responses:
         '200':
           description: Successful response with event details.
@@ -84,42 +96,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SpecialEvent'
-        '400':
-          $ref: '#/components/responses/BadRequest'
         '404':
-          $ref: '#/components/responses/NotFound'
-    patch:
-      summary: Update Event
-      description: Modify details of an existing event.
-      operationId: updateEvent
-      tags:
-        - Events
-      parameters:
-        - $ref: '#/components/parameters/EventId'
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UpdateSpecialEventRequest'
-      responses:
-        '200':
-          description: Event successfully updated.
+          description: Event not found.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SpecialEvent'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '404':
-          $ref: '#/components/responses/NotFound'
+                $ref: '#/components/schemas/Error'
+    servers:
+      - url: https://api.redocly-museum.com/v1
 components:
   schemas:
-    MuseumHoursResponse:
-      type: array
-      items:
-        $ref: '#/components/schemas/MuseumDailyHours'
-    MuseumDailyHours:
+    MuseumHours:
       type: object
       properties:
         date:
@@ -168,86 +155,6 @@ components:
         eventPrice:
           type: number
           format: float
-      required:
-        - eventName
-        - eventDescription
-        - eventLocation
-        - eventDates
-        - eventPrice
-    UpdateSpecialEventRequest:
-      type: object
-      properties:
-        eventName:
-          type: string
-        eventDescription:
-          type: string
-        eventLocation:
-          type: string
-        eventDates:
-          type: array
-          items:
-            type: string
-            format: date
-        eventPrice:
-          type: number
-          format: float
-  parameters:
-    StartDate:
-      name: startDate
-      in: query
-      description: Start date for filtering events or hours.
-      required: false
-      schema:
-        type: string
-        format: date
-    EndDate:
-      name: endDate
-      in: query
-      description: End date for filtering events or hours.
-      required: false
-      schema:
-        type: string
-        format: date
-    PaginationPage:
-      name: page
-      in: query
-      description: Page number for pagination.
-      required: false
-      schema:
-        type: integer
-        default: 1
-        minimum: 1
-    PaginationLimit:
-      name: limit
-      in: query
-      description: Number of items per page.
-      required: false
-      schema:
-        type: integer
-        default: 10
-        minimum: 1
-        maximum: 100
-  responses:
-    BadRequest:
-      description: Invalid request data provided.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Resource not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Unauthorized access.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-tags:
-  - name: Hours
-    description: Museum operating hours information.
-  - name: Events
-    description: Special events hosted at the museum.
+  servers:
+    - url: https://api.redocly-museum.com/v1
+      description: Production server for Redocly Museum API
