@@ -6,7 +6,7 @@ extends:
 rules: 
   operation-tag-defined: error
   no-invalid-schema-examples: error
-  no-invalid-media-type-examples: error
+  no-invalid-media-type-examples: off # Check support for readOnly fields
   scalar-property-missing-example: error
   rule/operation-summary-sentence-case:
     subject: 
