@@ -11,7 +11,7 @@ info:
     name: MIT
     url: "https://opensource.org/license/mit/"
 servers:
-  - url: https://redocly.com/_mock/docs/openapi/museum-api/
+  - url: "https://redocly.com/_mock/docs/openapi/museum-api"
 paths:
   /museum-hours:
     get:
