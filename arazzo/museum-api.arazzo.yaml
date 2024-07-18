@@ -1,9 +1,9 @@
 arazzo: 1.0.0
 info:
-  title: Redocly Museum API
+  title: Redocly Museum API Test Workflow
   description: >-
-    An imaginary, but delightful Museum API for interacting with museum services
-    and information. Built with love by Redocly.
+    Use the Museum API with Arazzo as an example of describing multi-step workflows.
+    Built with love by Redocly.
   version: 1.0.0
 
 sourceDescriptions:

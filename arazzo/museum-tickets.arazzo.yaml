@@ -1,9 +1,9 @@
 arazzo: 1.0.0
 info:
-  title: Redocly Museum API Tickets
+  title: Redocly Museum Tickets Workflow
   description: >-
-    A part of imaginary, but delightful Museum API for interacting with museum services
-    and information. Built with love by Redocly.
+    Use the Museum API as an example in a simple Arazzo workflow.
+    Built with love by Redocly.
   version: 1.0.0
 
 sourceDescriptions:
