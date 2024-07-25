@@ -12,7 +12,7 @@ sourceDescriptions:
     url: ../openapi.yaml
   - name: tickets-from-museum-api
     type: arazzo
-    url: arazzo/museum-tickets.arazzo.yaml
+    url: museum-tickets.arazzo.yaml
 
 workflows:
   - workflowId: get-museum-hours
