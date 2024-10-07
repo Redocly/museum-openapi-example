@@ -129,7 +129,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/SpecialEvent"
+              $ref: "#/components/schemas/SpecialEventFields"
             examples:
               default_example:
                 $ref: "#/components/examples/UpdateSpecialEventRequestExample"
@@ -238,9 +238,13 @@ components:
       example: museum-lover@example.com
     BuyMuseumTickets:
       description: Data to purchase a ticket.
+      type: object
       allOf:
+        - type: object
+          properties:
+            email:
+              $ref: "#/components/schemas/Email"
         - $ref: "#/components/schemas/Ticket"
-        - $ref: "#/components/schemas/Email"
     TicketMessage:
       description: Confirmation message after a ticket purchase.
       type: string
@@ -342,6 +346,19 @@ components:
       type: number
       format: float
       example: 25
+    SpecialEventFields:
+      type: object
+      properties:
+        name:
+          $ref: "#/components/schemas/EventName"
+        location:
+          $ref: "#/components/schemas/EventLocation"
+        eventDescription:
+          $ref: "#/components/schemas/EventDescription"
+        dates:
+          $ref: "#/components/schemas/EventDates"
+        price:
+          $ref: "#/components/schemas/EventPrice"
     SpecialEvent:
       type: object
       properties:
@@ -392,7 +409,7 @@ components:
     BuyEventTicketsRequestExample:
       summary: Special event ticket
       value:
-        ticketType: general
+        ticketType: event
         eventId: dad4bce8-f5cb-4078-a211-995864315e39
         ticketDate: '2023-09-05'
         email: todd@example.com
