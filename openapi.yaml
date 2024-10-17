@@ -218,6 +218,26 @@ paths:
           $ref: '#/components/responses/BadRequest'
         "404":
           $ref: '#/components/responses/NotFound'
+webhooks:
+  publishNewEvent:
+    post:
+      summary: New special event added
+      description: Publish details of a new or updated event.
+      operationId: publishNewEvent
+      tags:
+        - Events
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SpecialEvent"
+            examples:
+              default_example:
+                $ref: "#/components/examples/GetSpecialEventResponseExample"
+      responses:
+        "202":
+          description: Data accepted.
+
 components:
   schemas:
     TicketType:
