@@ -1,5 +1,0 @@
-# This file instructs Redocly's linter to ignore the rules contained for specific parts of your API.
-# See https://redoc.ly/docs/cli/ for more information.
-openapi.yaml:
-  rule/operation-summary-sentence-case:
-    - '#/paths/~1tickets~1{ticketId}~1qr/get/summary'

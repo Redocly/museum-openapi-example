@@ -4,12 +4,13 @@ info:
   description: >-
     Use the Museum API with Arazzo as an example of describing multi-step workflows.
     Built with love by Redocly.
-  version: 1.0.0
+  version: 1.0.1
 
 sourceDescriptions:
   - name: museum-api
     type: openapi
     url: ../openapi.yaml
+    x-serverUrl: "http://localhost:4000/_mock/openapi" # For local development testing
   - name: tickets-from-museum-api
     type: arazzo
     url: museum-tickets.arazzo.yaml
@@ -70,8 +71,8 @@ workflows:
             condition: $.name == 'Mermaid Treasure Identification and Analysis'
             type: jsonpath
         outputs:
-          createdEventId: $response.body.eventId
-          name: $response.body.name
+          createdEventId: $response.body#/eventId
+          name: $response.body#/name
       - stepId: get-event-by-id
         description: >-
           Get the details of the event that was created in the previous step.
@@ -106,7 +107,7 @@ workflows:
             condition: $.name == 'Orca Identification and Analysis'
             type: jsonpath
         outputs:
-          updatedEventId: $response.body.eventId
+          updatedEventId: $response.body#/eventId
       - stepId: delete-event
         description: >-
           Delete the event that was updated in the previous step.

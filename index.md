@@ -14,9 +14,9 @@ You can download it and use it as you wish.
 [Redocly CLI](https://github.com/Redocly/redocly-cli) is an open source CLI utility for all things OpenAPI.
 Try Redocly CLI to get to grips with some of the different things you can do with OpenAPI.
 
-- Use `stats` to assess an API: `redocly stats openapi.yaml`.
-- Run `lint` to observe if an OpenAPI is compatible with a set of standards: `redocly lint openapi.yaml`.
-- View API reference documentation: `redocly preview-docs openapi.yaml`.
+- Use `stats` to assess an API: `npx @redocly/cli stats openapi.yaml`.
+- Run `lint` to observe if an OpenAPI is compatible with a set of standards: `npx @redocly/cli lint openapi.yaml`.
+- View localhost preview of the documentation: `npx @redocly/cli preview`.
 
 The [Redocly CLI documentation](https://redocly.com/docs/cli/) has all the information you need to dive into more detail on any of these common tasks, and of course many more!
 
@@ -25,7 +25,7 @@ The [Redocly CLI documentation](https://redocly.com/docs/cli/) has all the infor
 A key part of great API experience is great documentation.
 Taking the API reference as the heart of the experience, Redocly's platform goes much further and includes a full documentation platform.
 
-Run `redocly preview` to run your project locally, and start adding content.
+Run `npx @redocly/cli preview` to run your project locally, and start adding content.
 Or use the cloud editor with immediate preview and collaborative editing.
 
 Write great content with great tools; Redocly supports [Markdoc](https://markdoc.dev/), a modern extension to Markdown.

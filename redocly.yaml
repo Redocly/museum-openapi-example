@@ -16,14 +16,13 @@ rules:
       property: summary
     message: "Operation summary must be sentence cased."
     assertions: 
-      pattern: /^[A-Z]+[^A-Z]+$/
+      pattern: /^[A-Z]([^A-Z]*|[A-Z]+\s)[^A-Z]*([A-Z]+[^A-Z]*)*$/
   rule/example-summary-sentence-case:
     subject: 
       type: Example
       property: summary
     message: "Example summary must be sentence cased."
     assertions: 
-      pattern: /^[A-Z]+[^A-Z]+$/
-
+      pattern: /^[A-Z]([^A-Z]*|[A-Z]+\s)[^A-Z]*([A-Z]+[^A-Z]*)*$/
 ignore:
   - .github

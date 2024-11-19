@@ -39,7 +39,7 @@ Before submitting a pull request, please make sure the following is done:
 
 ## Development setup
 
-[Node.js](http://nodejs.org) at v14.19.0+ and NPM v7.0.0+ are required.
+[Node.js](http://nodejs.org) at the current LTS version is required.
 
 After cloning the repo, install the Redocly CLI by running the following command:
 
@@ -60,15 +60,5 @@ Additions and updates to our documentation are very welcome.
 
 ### Configuration file
 
-The **redocly.yaml** file is the  
+The **redocly.yaml** file is the configuration file for the Redocly tools.
 Please refer to the [configuration file](https://redocly.com/docs/cli/configuration/) documentation for more details.
-
-## Project structure
-
-- **`docs`**: contains the documentation source files. 
-When changes to the documentation are merged, they automatically get published on the [Redocly docs website](https://redoc.ly/docs/cli/).
-
-
-## Release flow
-
-If the pipelines are not starting, close and reopen the PR. Merging that PR triggers the release process.

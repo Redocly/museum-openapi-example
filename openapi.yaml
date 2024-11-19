@@ -2,7 +2,7 @@ openapi: 3.1.0
 info:
   title: Redocly Museum API
   description: Imaginary, but delightful Museum API for interacting with museum services and information. Built with love by Redocly.
-  version: 1.2.0
+  version: 1.2.1
   termsOfService: 'https://redocly.com/subscription-agreement/'
   contact:
     email: team@redocly.com
@@ -285,7 +285,7 @@ components:
         ticketId:
           $ref: "#/components/schemas/TicketId"
         ticketDate:
-          description: Date the ticket is valid for.
+          description: Date when this ticket can be used for museum entry.
           $ref: "#/components/schemas/Date"
         ticketType:
           $ref: "#/components/schemas/TicketType"
@@ -454,7 +454,7 @@ components:
       summary: Create special event
       value:
         name: Mermaid Treasure Identification and Analysis
-        location: Under the seaaa 🦀 🎶 🌊.
+        location: Under the seaaa ��� 🎶 🌊.
         eventDescription: Join us as we review and classify a rare collection of 20 thingamabobs, gadgets, gizmos, whoosits, and whatsits, kindly donated by Ariel.
         dates:
           - '2023-09-05'

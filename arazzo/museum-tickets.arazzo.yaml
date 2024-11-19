@@ -4,12 +4,13 @@ info:
   description: >-
     Use the Museum API as an example in a simple Arazzo workflow.
     Built with love by Redocly.
-  version: 1.0.0
+  version: 1.0.1
 
 sourceDescriptions:
   - name: museum-api
     type: openapi
     url: ../openapi.yaml
+    x-serverUrl: "http://localhost:4000/_mock/openapi" # For local development testing
 
 workflows:
   - workflowId: get-museum-tickets
@@ -27,11 +28,11 @@ workflows:
         requestBody:
           payload:
             ticketType: general
-            ticketDate: 2023-09-07
+            ticketDate: '2023-09-07'
             email: todd@example.com
         successCriteria:
           - condition: $statusCode == 201
         outputs:
-          ticketId: $response.body.ticketId
+          ticketId: $response.body#/ticketId
     outputs:
       ticketId: $steps.buy-tickets.outputs.ticketId
