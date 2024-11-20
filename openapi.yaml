@@ -70,7 +70,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     get:
       summary: List special events
-      description: Return a list of upcoming special events at the museum.
+      description: Return a list of past special events at the museum. See one you like? Use this API to [buy a ticket](/#tag/Tickets/operation/buyMuseumTickets).
       operationId: listSpecialEvents
       tags:
         - Events
@@ -182,6 +182,10 @@ paths:
                 $ref: "#/components/examples/BuyGeneralTicketsRequestExample"
               event_entry:
                 $ref: "#/components/examples/BuyEventTicketsRequestExample"
+              student_entry:
+                $ref: "#/components/examples/BuyStudentTicketsRequestExample"
+              child_entry:
+                $ref: "#/components/examples/BuyChildTicketsRequestExample"
       responses:
         "201":
           description: Created.
@@ -194,6 +198,10 @@ paths:
                   $ref: "#/components/examples/BuyGeneralTicketsResponseExample"
                 event_entry:
                   $ref: "#/components/examples/BuyEventTicketsResponseExample"
+                student_entry:
+                  $ref: "#/components/examples/BuyStudentTicketsResponseExample"
+                child_entry:
+                  $ref: "#/components/examples/BuyChildTicketsResponseExample"
         "400":
           $ref: '#/components/responses/BadRequest'
         "404":
@@ -241,11 +249,13 @@ webhooks:
 components:
   schemas:
     TicketType:
-      description: Type of ticket being purchased. Use `general` for regular museum entry and `event` for tickets to special events.
+      description: Type of ticket being purchased. Use `general` for regular museum entry and `event` for tickets to special events. Use `student` for school-aged children. Visitors aged 0-5 are free.
       type: string
       enum:
         - event
         - general
+        - student
+        - child
       example: event
     Date:
       type: string
@@ -433,6 +443,20 @@ components:
         eventId: dad4bce8-f5cb-4078-a211-995864315e39
         ticketDate: '2023-09-05'
         email: todd@example.com
+    BuyStudentTicketsRequestExample:
+      summary: Student entry ticket
+      value:
+        ticketType: student
+        ticketDate: '2023-09-05'
+        school: Local Elementary School
+        email: todd@example.com
+    BuyChildTicketsRequestExample:
+      summary: Child entry ticket
+      value:
+        ticketType: child
+        ticketDate: '2023-09-05'
+        childAge: 3
+        email: todd@example.com
     BuyGeneralTicketsResponseExample:
       summary: General entry ticket
       value:
@@ -450,6 +474,22 @@ components:
         ticketType: event
         ticketDate: '2023-09-05'
         confirmationCode: ticket-event-9c55eg-8v82a
+    BuyStudentTicketsResponseExample:
+      summary: Student entry ticket
+      value:
+        message: Museum student entry ticket purchased
+        ticketId: 382c09393-0577-4g4v-88af-133352ad0f17a
+        ticketType: student
+        ticketDate: '2023-09-07'
+        confirmationCode: ticket-student-l3jf33-pre78
+    BuyChildTicketsResponseExample:
+      summary: Child entry ticket
+      value:
+        message: Museum child entry ticket purchased
+        ticketId: 382c09393-0577-4g4v-88af-133352ad0f17a
+        ticketType: child
+        ticketDate: '2023-09-07'
+        confirmationCode: ticket-child-j5gg99k-lpr78
     CreateSpecialEventRequestExample:
       summary: Create special event
       value:
