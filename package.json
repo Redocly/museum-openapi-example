@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "npx @redocly/cli@latest lint",
-    "preview": "npx @redocly/cli preview"
+    "preview": "npx @redocly/cli@latest preview"
   },
   "keywords": [
     "OpenAPI",
